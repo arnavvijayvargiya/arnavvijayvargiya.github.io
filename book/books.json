@@ -1,0 +1,26 @@
+[
+  {
+    "title": "The Almanack of Naval Ravikant",
+    "author": "Eric Jorgenson",
+    "isbn": "9781544514215",
+    "slug": "almanack-of-naval-ravikant",
+    "dateRead": "2024-12-05",
+    "thoughts": "A great collection of Naval's ideas. Highly recommend it to anyone interested in wealth creation and decision-making."
+  },
+  {
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "isbn": "9780735211292",
+    "slug": "atomic-habits",
+    "dateRead": "2024-10-15",
+    "thoughts": "Practical and actionable. If you're into behavior change and optimization, this is essential reading."
+  },
+  {
+    "title": "Sapiens: A Brief History of Humankind",
+    "author": "Yuval Noah Harari",
+    "isbn": "9780062316097",
+    "slug": "sapiens",
+    "dateRead": "2024-08-22",
+    "thoughts": "Gives a compelling overview of human history. Thought-provoking and well-written."
+  }
+]
