@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Page Not Found - अर्नव विजयवर्गीय</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --fontFamily-sans: "Inter", "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --fontFamily-serif: "Crimson Text", "Merriweather", Georgia, Cambria, "Times New Roman", Times, serif;
+
+      --font-body: var(--fontFamily-serif);
+      --font-heading: var(--fontFamily-sans);
+
+      --lineHeight-normal: 2rem;
+
+      --fontSize-normal: 1rem;
+      --fontSize-big: 1.44rem;
+      --fontSize-bigger: 1.738rem;
+      --fontSize-very-big: 2.488rem;
+
+      --color-heading: #1a1a1a;
+      --color-text: #2F323A;
+      --color-link: #2F323A;
+      --color-selection: rgba(212, 165, 116, 0.3);
+
+      --fontWeight-black: 900;
+      --fontWeight-medium: 500;
+
+      --spacing-0: 0;
+      --spacing-little: 0.5rem;
+      --spacing-normal: 1rem;
+      --spacing-big: 1.5rem;
+      --spacing-very-big: 3rem;
+
+      --color-background: #faf7f2;
+    }
+
+    html {
+      line-height: var(--lineHeight-normal);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Text selection styling */
+    ::selection {
+      background-color: var(--color-selection);
+      color: var(--color-heading);
+    }
+
+    ::-moz-selection {
+      background-color: var(--color-selection);
+      color: var(--color-heading);
+    }
+
+    body {
+      background-color: var(--color-background);
+      max-width: 38em;
+      margin: 0 auto;
+      padding: var(--spacing-big) var(--spacing-little);
+      font-family: var(--font-body);
+      font-size: 19px;
+      color: var(--color-text);
+      line-height: 1.75;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--color-heading);
+      margin-bottom: var(--spacing-big);
+      font-weight: var(--fontWeight-medium);
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-weight: var(--fontWeight-black);
+      font-size: 2.2rem;
+      margin-bottom: 1.8rem;
+    }
+
+    h2 {
+      font-weight: var(--fontWeight-black);
+    }
+
+    p {
+      color: var(--color-text);
+      font-size: 19px;
+      margin-bottom: 1.2rem;
+      line-height: 1.75;
+    }
+
+    a {
+      color: var(--color-link);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+      color: #1a1a1a;
+    }
+
+    a.clean {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .highlight-text {
+      background: linear-gradient(120deg, rgba(212, 165, 116, 0.25) 0%, rgba(232, 200, 159, 0.25) 100%);
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    nav {
+      display: flex;
+      padding: var(--spacing-very-big) var(--spacing-0) 4rem var(--spacing-0);
+      gap: 2rem;
+      border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+      margin-bottom: 3rem;
+    }
+
+    nav a {
+      font-family: var(--font-heading);
+      font-weight: var(--fontWeight-medium);
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    nav a:first-child {
+      margin-right: auto;
+      font-size: var(--fontSize-bigger);
+      font-weight: var(--fontWeight-black);
+    }
+
+    nav a:hover {
+      color: #1a1a1a;
+      transform: translateY(-1px);
+    }
+
+    .section {
+      margin-bottom: 4rem;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    hr {
+      background: rgba(212, 165, 116, 0.3);
+      height: 1px;
+      border: 0;
+      margin: 1.5rem 0 2rem 0;
+    }
+
+    .error-code {
+      font-size: 4rem;
+      font-weight: var(--fontWeight-black);
+      color: var(--color-heading);
+      margin-bottom: 0.5rem;
+      font-family: var(--font-heading);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(120deg, rgba(212, 165, 116, 0.15) 0%, rgba(232, 200, 159, 0.15) 100%);
+      border: 1px solid rgba(212, 165, 116, 0.3);
+      border-radius: 6px;
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-weight: var(--fontWeight-medium);
+      transition: all 0.2s ease;
+    }
+
+    .back-link:hover {
+      background: linear-gradient(120deg, rgba(212, 165, 116, 0.25) 0%, rgba(232, 200, 159, 0.25) 100%);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: var(--spacing-little) var(--spacing-normal);
+      }
+      
+      .error-code {
+        font-size: 3rem;
+      }
+      
+      nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="clean" href="index.html">←</a>
+    <a href="/book">Book Notes</a>
+    <a href="/blog">Blog</a> 
+    <a href="/travel">Travel</a>
+    <a href="/musing">Musing</a>
+  </nav>
+
+  <div class="section">
+    <div class="error-code">404</div>
+    <h1>Lost in the Digital Chaos</h1>
+    <hr>
+    <p>
+      Looks like you've wandered into uncharted territory. This page is probably off somewhere <span class="highlight-text">exploring Kashmir</span> or hiding in the fridge.
+    </p>
+    <p>
+      Don't worry, even I get lost sometimes while walking without destination. Let's get you back to familiar ground.
+    </p>
+    
+    <a href="/" class="back-link">← Back to Safety</a>
+  </div>
+</body>
+</html>
