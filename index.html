@@ -1,43 +1,506 @@
-﻿
 <!doctype html>
 <html lang="en">
 <head>
   <title>अर्नव विजयवर्गीय</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/style.css">
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+    :root {
+      --bg-primary: #fefefe;
+      --bg-secondary: #f8f6f3;
+      --bg-accent: #f4f1ed;
+      --text-primary: #1a1a1a;
+      --text-secondary: #4a4a4a;
+      --text-muted: #888888;
+      --accent-gold: #d4a574;
+      --accent-warm: #e8c89f;
+      --accent-sage: #9caf88;
+      --border-light: rgba(212, 165, 116, 0.2);
+      --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.06);
+      --shadow-lift: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    /* Typography */
+    .serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Navigation */
+    nav {
+      background: rgba(254, 254, 254, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    .nav-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 0;
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      position: relative;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent-gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 8rem 0 6rem 0;
+      text-align: left;
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-description {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .highlight-text {
+      background: linear-gradient(120deg, var(--accent-warm) 0%, var(--accent-gold) 100%);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* Sections */
+    .section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+      font-style: italic;
+    }
+
+    /* Cards */
+    .content-card {
+      background: var(--bg-secondary);
+      padding: 3rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-soft);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-gold) 0%, var(--accent-warm) 50%, var(--accent-sage) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .content-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lift);
+    }
+
+    .content-card:hover::before {
+      opacity: 1;
+    }
+
+    .content-card p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .content-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Meta information */
+    .meta {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-light);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .meta a {
+      color: var(--accent-gold);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .meta a:hover {
+      color: var(--text-primary);
+    }
+
+    /* Decorative elements */
+    .decorative-line {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-warm));
+      margin: 2rem 0;
+      border-radius: 1px;
+    }
+
+    /* Subtle animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      .nav-content {
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+      }
+
+      .nav-links {
+        gap: 2rem;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .nav-links a {
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding: 4rem 0 3rem 0;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .section {
+        padding: 2.5rem 0;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .section-subtitle {
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+      }
+
+      .content-card {
+        padding: 1.8rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .content-card p {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 1.2rem;
+      }
+
+      .meta {
+        margin-top: 1.5rem;
+        padding-top: 1.2rem;
+        font-size: 0.85rem;
+      }
+
+      .decorative-line {
+        width: 50px;
+        margin: 1.5rem 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      .nav-content {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+        font-size: 0.85rem;
+      }
+
+      .hero {
+        padding: 3rem 0 2.5rem 0;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-description {
+        font-size: 0.95rem;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .content-card {
+        padding: 1.5rem;
+      }
+
+      .content-card p {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Smooth interactions */
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+      background: rgba(212, 165, 116, 0.2);
+      color: var(--text-primary);
+    }
+
+    /* Elegant hover states */
+    a {
+      transition: all 0.3s ease;
+    }
+
+    /* Refined scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-secondary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-gold);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--text-muted);
+    }
+  </style>
 </head>
 <body>
   <nav>
-    <a class="clean" href="index.html">🏠</a>
-    <a href="/book">Book Notes</a>
-    <a href="/blog">Blog</a> 
-    <a href="/travel">Travel</a>
-    <a href="/musing">Musing</a>
+    <div class="nav-content">
+      <a href="#" class="logo">अर्नव विजयवर्गीय</a>
+      <ul class="nav-links">
+        <li><a href="/book">Book Notes</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/travel">Travel</a></li>
+        <li><a href="/musing">Musing</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <div class="section">
-    <h1>Me, in a Moving Frame</h1>
-    <hr>
-    <p>
-      Born from the soil of <span class="highlight-text">भारतम्</span>.Currently experimenting with thoughts, pixels, and chai.
-    </p>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">A Life in Perpetual Motion</h1>
+          <div class="decorative-line"></div>
+          <p class="hero-description">
+            Rooted in the ancient soil of <span class="highlight-text">भारतम्</span>, I find myself perpetually drawn to the intersection of tradition and modernity—where centuries-old wisdom meets contemporary curiosity.
+          </p>
+          <p class="hero-description">
+            My days unfold through storytelling, meandering walks with no particular destination, the occasional necessity of code, and the gentle art of transforming life's beautiful chaos into something worth sharing.
+          </p>
+        </div>
+      </div>
+    </section>
 
-   <p>
-     I like storytelling, walking without destination, coding (when necessary), and turning everyday chaos into content.
-   </p>
-  </div>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title fade-up">Present Pursuits</h2>
+        <p class="section-subtitle fade-up">A glimpse into current endeavors — Last updated July 19, 2025</p>
+        
+        <div class="content-card fade-up">
+          <p>Nestled in Jaipur's embrace, where the summer sun writes poetry in degrees celsius, I find myself in that curious state between productivity and contemplation.</p>
+          
+          <p>My evenings are devoted to what I diplomatically call "cinematic research"—a careful curation of films and stories that speak to the human condition. Meanwhile, my kitchen serves as an experimental theater where rotis transform into abstract art, each charred edge a testament to my creative process.</p>
+          
+          <p>Books accumulate around me like faithful companions, their spines promising future conversations. I collect them with the optimism of someone who believes time expands to accommodate all worthy pursuits.</p>
 
-  <div class="section">
-    <h2>NOW-NoW-now-ish</h2>
-    <small>(I last updated it on July 19, 2025 - Inspired by the <a href="https://nownownow.com/about" target="_blank">Now</a> page.)</small>
-    <hr>
+          <p>Dreams of cooler climates dance in my mind—perhaps the ethereal landscapes of Leh, the serene valleys of Kashmir, or in moments of particular candor, simply the reliable sanctuary of an open refrigerator door.</p>
 
-    <p>Currently pretending to be productive in Jaipur's heat..</p>
-    <p>Binge-watching films/shows for “research”, burning rotis as performance art, and hoarding books I’ll totally read someday.</p>
-    <p>Manifesting a cold escape - maybe Leh, Kashmir, or honestly just standing inside the fridge with the door open.</p>
- 
+          <div class="meta">
+            <em>This page draws inspiration from Derek Sivers' <a href="https://nownownow.com/about" target="_blank">Now page movement</a>—a beautiful practice of sharing one's current focus with the world.</em>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  </div>
+  <script>
+    // Intersection Observer for fade animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -30px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all fade-up elements
+    document.querySelectorAll('.fade-up').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth navbar behavior
+    let lastScrollY = window.scrollY;
+    const navbar = document.querySelector('nav');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      
+      if (scrollY > 50) {
+        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+      } else {
+        navbar.style.boxShadow = 'none';
+      }
+      
+      lastScrollY = scrollY;
+    });
+  </script>
 </body>
 </html>
