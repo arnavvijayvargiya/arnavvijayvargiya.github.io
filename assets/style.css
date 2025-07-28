@@ -1,184 +1,535 @@
+/* ==========================================================================
+   Unified CSS for अर्नव विजयवर्गीय Personal Website
+   ========================================================================== */
+
+/* Font Imports */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
+/* ==========================================================================
+   CSS Custom Properties (Variables)
+   ========================================================================== */
 :root {
-  --fontFamily-sans: "Inter", "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --fontFamily-serif: "Playfair Display", "Crimson Text", "Merriweather", Georgia, Cambria, "Times New Roman", Times, serif;
-
-  --font-body: var(--fontFamily-serif);
-  --font-heading: var(--fontFamily-sans);
-
   --bg-primary: #fefefe;
   --bg-secondary: #f8f6f3;
   --bg-accent: #f4f1ed;
-
   --text-primary: #1a1a1a;
   --text-secondary: #4a4a4a;
   --text-muted: #888888;
-
   --accent-gold: #d4a574;
   --accent-warm: #e8c89f;
   --accent-sage: #9caf88;
-
   --border-light: rgba(212, 165, 116, 0.2);
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.06);
   --shadow-lift: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
-  font-family: var(--font-body);
-  background-color: var(--bg-primary);
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.7;
-  font-size: 1rem;
-  padding: 0;
-  margin: 0;
+  font-weight: 400;
+}
+
+/* Text Selection */
+::selection {
+  background: rgba(212, 165, 116, 0.2);
+  color: var(--text-primary);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-gold);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+.serif {
+  font-family: 'Playfair Display', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
 }
 
 a {
-  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   Layout Components
+   ========================================================================== */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Decorative Elements */
+.decorative-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-warm));
+  margin: 2rem 0;
+  border-radius: 1px;
+}
+
+.highlight-text {
+  background: linear-gradient(120deg, rgba(212, 165, 116, 0.25) 0%, rgba(232, 200, 159, 0.25) 100%);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
   color: var(--text-primary);
 }
 
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-/* Navbar */
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
 nav {
-  background-color: var(--bg-primary);
-  padding: 1rem 0;
+  background: rgba(254, 254, 254, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-light);
   position: sticky;
   top: 0;
-  z-index: 1000;
-  transition: box-shadow 0.3s ease;
-  border-bottom: 1px solid var(--border-light);
+  z-index: 100;
+  transition: all 0.3s ease;
 }
 
 .nav-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
   font-weight: 600;
-  font-family: var(--font-heading);
-  color: var(--accent-gold);
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: -0.02em;
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 1.25rem;
+  gap: 2.5rem;
+  list-style: none;
 }
 
 .nav-links a {
-  font-family: var(--font-heading);
-  font-weight: 500;
-  font-size: 1rem;
   color: var(--text-secondary);
-  transition: color 0.3s ease;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+  letter-spacing: 0.01em;
 }
 
 .nav-links a:hover {
-  color: var(--accent-gold);
-}
-
-/* Hero Section */
-.hero {
-  padding: 5rem 1rem;
-  background-color: var(--bg-accent);
-  text-align: center;
-}
-
-.hero-title {
-  font-family: var(--font-heading);
-  font-size: 2.5rem;
   color: var(--text-primary);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent-gold);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Page Headers
+   ========================================================================== */
+.hero, .page-header {
+  padding: 6rem 0 4rem 0;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero-title, .page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.page-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   margin-bottom: 1rem;
 }
 
-.decorative-line {
-  width: 60px;
-  height: 3px;
-  background-color: var(--accent-gold);
-  margin: 0 auto 2rem;
-}
-
-.hero-description {
-  font-size: 1.15rem;
-  max-width: 700px;
-  margin: 1rem auto;
+.hero-description, .page-description {
+  font-size: 1.2rem;
   color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
 }
 
-/* Highlight Text */
-.highlight-text {
-  color: var(--accent-sage);
-  font-weight: 600;
+.page-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 2rem;
+  max-width: 600px;
 }
 
-/* Section */
+/* ==========================================================================
+   Cards and Content Blocks
+   ========================================================================== */
+.content-card, .card, .book-item, .blog-post {
+  background: var(--bg-secondary);
+  padding: 3rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.content-card::before, .card::before, .book-item::before, .blog-post::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-gold) 0%, var(--accent-warm) 50%, var(--accent-sage) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.content-card:hover, .card:hover, .book-item:hover, .blog-post:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+}
+
+.content-card:hover::before, .card:hover::before, .book-item:hover::before, .blog-post:hover::before {
+  opacity: 1;
+}
+
+.content-card p, .card p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.content-card p:last-child, .card p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Section Styling
+   ========================================================================== */
 .section {
-  background-color: var(--bg-secondary);
-  padding: 4rem 1rem;
+  padding: 4rem 0;
 }
 
 .section-title {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 0.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
 }
 
 .section-subtitle {
-  font-size: 1rem;
-  text-align: center;
+  font-size: 0.95rem;
   color: var(--text-muted);
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  font-style: italic;
 }
 
-/* Content Card */
-.content-card {
-  background-color: var(--bg-primary);
-  padding: 2rem;
+/* ==========================================================================
+   Book Notes Specific Styles
+   ========================================================================== */
+.intro-section {
+  background: var(--bg-secondary);
+  padding: 3rem;
   border-radius: 12px;
+  margin: 3rem 0;
+  border: 1px solid var(--border-light);
   box-shadow: var(--shadow-soft);
 }
 
-.content-card p {
-  margin-bottom: 1.25rem;
-  color: var(--text-secondary);
-  font-size: 1.05rem;
+.intro-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
 }
 
-.meta {
-  font-size: 0.875rem;
+.intro-section p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.intro-section p:last-child {
+  margin-bottom: 0;
+}
+
+.book-content {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.book-cover {
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.book-item:hover .book-cover {
+  transform: scale(1.02);
+}
+
+.book-details h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.book-meta {
+  font-size: 0.95rem;
   color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.book-meta span {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.book-thoughts {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.book-thoughts strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Blog Specific Styles
+   ========================================================================== */
+.blog-posts {
+  padding: 2rem 0 4rem 0;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.post-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.post-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.post-title a:hover {
+  color: var(--accent-gold);
+}
+
+.post-excerpt {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.post-excerpt p {
+  margin-bottom: 1rem;
+}
+
+.post-excerpt p:last-child {
+  margin-bottom: 0;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--accent-gold);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.read-more:hover {
+  color: var(--text-primary);
+  transform: translateX(2px);
+}
+
+.read-more::after {
+  content: '→';
+  transition: transform 0.3s ease;
+}
+
+.read-more:hover::after {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+.meta {
   margin-top: 2rem;
+  padding-top: 1.5rem;
   border-top: 1px solid var(--border-light);
-  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
 }
 
 .meta a {
   color: var(--accent-gold);
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-/* Animation */
+.meta a:hover {
+  color: var(--text-primary);
+}
+
+.coming-soon {
+  background: var(--bg-accent);
+  padding: 3rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px dashed var(--border-light);
+  margin-top: 2rem;
+}
+
+.coming-soon p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.coming-soon p:last-child {
+  margin-bottom: 0;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.error {
+  color: #c67;
+}
+
+/* Animation Classes */
 .fade-up {
   opacity: 0;
   transform: translateY(20px);
-  transition: all 0.6s ease-out;
+  transition: all 0.6s ease;
 }
 
 .fade-up.visible {
@@ -186,15 +537,207 @@ nav {
   transform: translateY(0);
 }
 
-/* Responsive */
+/* ==========================================================================
+   Mobile Responsiveness
+   ========================================================================== */
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 2rem;
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .nav-content {
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .logo {
+    font-size: 1.5rem;
   }
 
   .nav-links {
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.75rem;
+    gap: 2rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  .hero, .page-header {
+    padding: 4rem 0 3rem 0;
+  }
+
+  .hero-title, .page-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-description, .page-description {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .section-subtitle {
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+  }
+
+  .content-card, .card, .book-item, .blog-post {
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .intro-section {
+    padding: 2rem;
+    margin: 2rem 0;
+  }
+
+  .intro-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .intro-section p {
+    font-size: 1rem;
+  }
+
+  .book-content {
+    grid-template-columns: 100px 1fr;
+    gap: 1.5rem;
+  }
+
+  .book-cover {
+    width: 100px;
+    height: 150px;
+  }
+
+  .book-details h3 {
+    font-size: 1.2rem;
+  }
+
+  .book-meta {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .book-thoughts {
+    font-size: 1rem;
+  }
+
+  .post-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .post-excerpt {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .coming-soon {
+    padding: 2rem;
+  }
+
+  .coming-soon p {
+    font-size: 1rem;
+  }
+
+  .decorative-line {
+    width: 50px;
+    margin: 1.5rem 0;
+  }
+
+  .meta {
+    margin-top: 1.5rem;
+    padding-top: 1.2rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .nav-content {
+    padding: 1rem;
+  }
+
+  .nav-links {
+    gap: 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  .hero, .page-header {
+    padding: 3rem 0 2.5rem 0;
+  }
+
+  .hero-title, .page-title {
+    font-size: 2rem;
+  }
+
+  .hero-description, .page-description {
+    font-size: 0.95rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .content-card, .card, .book-item, .blog-post {
+    padding: 1.5rem;
+  }
+
+  .intro-section {
+    padding: 1.5rem;
+  }
+
+  .book-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .book-cover {
+    justify-self: center;
+    width: 120px;
+    height: 180px;
+  }
+
+  .book-details {
+    text-align: left;
+  }
+
+  .post-title {
+    font-size: 1.3rem;
+  }
+
+  .post-excerpt {
+    font-size: 0.95rem;
+  }
+
+  .coming-soon {
+    padding: 1.5rem;
   }
 }
