@@ -1,316 +1,97 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title>Blog - अर्नव विजयवर्गीय</title>
+  <title>अर्नव विजयवर्गीय</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    :root {
-      --fontFamily-sans: "Inter", "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --fontFamily-serif: "Crimson Text", "Merriweather", Georgia, Cambria, "Times New Roman", Times, serif;
 
-      --font-body: var(--fontFamily-serif);
-      --font-heading: var(--fontFamily-sans);
-
-      --lineHeight-normal: 2rem;
-
-      --fontSize-normal: 1rem;
-      --fontSize-big: 1.44rem;
-      --fontSize-bigger: 1.738rem;
-      --fontSize-very-big: 2.488rem;
-
-      --color-heading: #1a1a1a;
-      --color-text: #2F323A;
-      --color-link: #2F323A;
-      --color-selection: rgba(212, 165, 116, 0.3);
-
-      --fontWeight-black: 900;
-      --fontWeight-medium: 500;
-
-      --spacing-0: 0;
-      --spacing-little: 0.5rem;
-      --spacing-normal: 1rem;
-      --spacing-big: 1.5rem;
-      --spacing-very-big: 3rem;
-
-      --color-background: #faf7f2;
-    }
-
-    html {
-      line-height: var(--lineHeight-normal);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* Text selection styling */
-    ::selection {
-      background-color: var(--color-selection);
-      color: var(--color-heading);
-    }
-
-    ::-moz-selection {
-      background-color: var(--color-selection);
-      color: var(--color-heading);
-    }
-
-    body {
-      background-color: var(--color-background);
-      max-width: 38em;
-      margin: 0 auto;
-      padding: var(--spacing-big) var(--spacing-little);
-      font-family: var(--font-body);
-      font-size: 19px;
-      color: var(--color-text);
-      line-height: 1.75;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: var(--font-heading);
-      color: var(--color-heading);
-      margin-bottom: var(--spacing-big);
-      font-weight: var(--fontWeight-medium);
-      letter-spacing: -0.02em;
-    }
-
-    h1 {
-      font-weight: var(--fontWeight-black);
-      font-size: 2.2rem;
-      margin-bottom: 1.8rem;
-    }
-
-    h2 {
-      font-weight: var(--fontWeight-black);
-      font-size: var(--fontSize-bigger);
-      margin-bottom: 1rem;
-    }
-
-    h3 {
-      font-size: var(--fontSize-big);
-      margin-bottom: 0.5rem;
-      margin-top: 1.8rem;
-    }
-
-    p {
-      color: var(--color-text);
-      font-size: 19px;
-      margin-bottom: 1.2rem;
-      line-height: 1.75;
-    }
-
-    a {
-      color: var(--color-link);
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
-      transition: all 0.2s ease;
-    }
-
-    a:hover {
-      text-decoration-thickness: 2px;
-      color: #1a1a1a;
-    }
-
-    a.clean {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .highlight-text {
-      background: linear-gradient(120deg, rgba(212, 165, 116, 0.25) 0%, rgba(232, 200, 159, 0.25) 100%);
-      padding: 3px 6px;
-      border-radius: 4px;
-      font-weight: 500;
-    }
-
-    nav {
-      display: flex;
-      padding: var(--spacing-very-big) var(--spacing-0) 4rem var(--spacing-0);
-      gap: 2rem;
-      border-bottom: 1px solid rgba(212, 165, 116, 0.2);
-      margin-bottom: 3rem;
-    }
-
-    nav a {
-      font-family: var(--font-heading);
-      font-weight: var(--fontWeight-medium);
-      transition: all 0.2s ease;
-      position: relative;
-    }
-
-    nav a:first-child {
-      margin-right: auto;
-      font-size: var(--fontSize-bigger);
-      font-weight: var(--fontWeight-black);
-    }
-
-    nav a:hover {
-      color: #1a1a1a;
-      transform: translateY(-1px);
-    }
-
-    .section {
-      margin-bottom: 4rem;
-    }
-
-    hr {
-      background: rgba(212, 165, 116, 0.3);
-      height: 1px;
-      border: 0;
-      margin: 1.5rem 0 2rem 0;
-    }
-
-    small {
-      color: #888;
-      font-style: italic;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .blog-post {
-      margin-bottom: 3.5rem;
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid rgba(212, 165, 116, 0.15);
-    }
-
-    .blog-post:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-    }
-
-    .post-meta {
-      color: #888;
-      font-size: 16px;
-      font-style: italic;
-      margin-bottom: 0.8rem;
-      font-family: var(--font-heading);
-    }
-
-    .post-title {
-      font-size: var(--fontSize-bigger);
-      font-weight: var(--fontWeight-black);
-      margin-bottom: 0.8rem;
-      margin-top: 0;
-    }
-
-    .post-title a {
-      color: var(--color-heading);
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .post-title a:hover {
-      color: #555;
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
-    }
-
-    .post-excerpt {
-      margin-bottom: 1rem;
-      line-height: 1.75;
-    }
-
-    .read-more {
-      font-family: var(--font-heading);
-      font-weight: var(--fontWeight-medium);
-      font-size: 16px;
-      color: #666;
-      text-decoration: none;
-      border-bottom: 1px solid #ccc;
-      transition: all 0.2s ease;
-    }
-
-    .read-more:hover {
-      color: var(--color-heading);
-      border-bottom-color: var(--color-heading);
-    }
-
-    .coming-soon {
-      text-align: center;
-      color: #888;
-      font-style: italic;
-      margin: 4rem 0;
-      padding: 2rem;
-      background: rgba(212, 165, 116, 0.08);
-      border-radius: 8px;
-      border: 1px dashed rgba(212, 165, 116, 0.3);
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: var(--spacing-little) var(--spacing-normal);
-      }
-      
-      .post-title {
-        font-size: var(--fontSize-big);
-      }
-    }
-  </style>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <nav>
-    <a class="clean" href="index.html">←</a>
-    <a href="/book">Book Notes</a>
-    <a href="/blog" style="color: #1a1a1a; font-weight: var(--fontWeight-black);">Blog</a> 
-    <a href="/travel">Travel</a>
-    <a href="/musing">Musing</a>
+    <div class="nav-content">
+      <a href="/" class="logo">अर्नव विजयवर्गीय</a>
+      <ul class="nav-links">
+        <li><a href="/book">Book Notes</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/travel">Travel</a></li>
+        <li><a href="/musing">Musing</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <div class="section">
-    <h1>Random Thoughts & Digital Scribbles</h1>
-    <small>(Where I pretend my thoughts are worth reading)</small>
-    <hr>
-  </div>
-
-  <div class="section">
-    <article class="blog-post">
-      <div class="post-meta">July 18, 2025</div>
-      <h2 class="post-title">
-        <a href="/blog/jaipur-summer-survival">Surviving Jaipur Summer: A Guide to Not Melting</a>
-      </h2>
-      <div class="post-excerpt">
-        <p>It's 47�C outside and I'm questioning every life choice that brought me here. But there's something oddly poetic about a city that refuses to surrender to the heat. Here's what I've learned about coexisting with Jaipur's summer fury...</p>
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1 class="page-title">Thoughts & Wanderings</h1>
+        <p class="page-subtitle">Essays on life, curiosity, and the beautiful chaos of everyday existence</p>
+        <div class="decorative-line"></div>
       </div>
-      <a href="/blog/jaipur-summer-survival" class="read-more">Continue reading ?</a>
-    </article>
+    </section>
 
-    <article class="blog-post">
-      <div class="post-meta">July 12, 2025</div>
-      <h2 class="post-title">
-        <a href="/blog/chai-philosophy">The Philosophy of Perfect Chai</a>
-      </h2>
-      <div class="post-excerpt">
-        <p>Three years of chai experimentation have taught me that the perfect cup isn't about the recipe�it's about the ritual. Every morning, I stand in my kitchen like a scientist, measuring, timing, hoping. Sometimes I get magic. Sometimes I get regret.</p>
+    <section class="container">
+      <div class="blog-posts">
+        <article class="blog-post fade-up">
+          <div class="post-meta">July 18th, 2025</div>
+          <h2 class="post-title">
+            <a href="/blog/jaipur-summer-survival">Surviving Jaipur's Summer: A Meditation on Heat</a>
+          </h2>
+          <div class="post-excerpt">
+            <p>The thermometer reads 47°C, and I find myself questioning every life choice that brought me to this moment. Yet there's something profoundly beautiful about a city that refuses to surrender to the elements—a place where life persists with stubborn grace against the sun's relentless theater.</p>
+            <p>Here's what three summers in the Pink City have taught me about coexisting with nature's extremes...</p>
+          </div>
+          <a href="/blog/jaipur-summer-survival" class="read-more">Continue reading</a>
+        </article>
+
+        <article class="blog-post fade-up">
+          <div class="post-meta">July 12th, 2025</div>
+          <h2 class="post-title">
+            <a href="/blog/chai-philosophy">The Sacred Ritual of Perfect Chai</a>
+          </h2>
+          <div class="post-excerpt">
+            <p>Three years of morning experiments have revealed a profound truth: the perfect cup of chai isn't about precision—it's about presence. Each morning, I approach my kitchen like a devotee entering a temple, measuring cardamom with the reverence of a scientist, timing each simmer with the patience of a philosopher.</p>
+            <p>Sometimes I achieve transcendence. Sometimes I create regret. Both are equally instructive.</p>
+          </div>
+          <a href="/blog/chai-philosophy" class="read-more">Continue reading</a>
+        </article>
+
+        <article class="blog-post fade-up">
+          <div class="post-meta">June 28th, 2025</div>
+          <h2 class="post-title">
+            <a href="/blog/productive-procrastination">The Elegant Art of Productive Procrastination</a>
+          </h2>
+          <div class="post-excerpt">
+            <p>I was meant to write code today. Instead, I reorganized my entire digital existence, absorbed three essays on medieval architecture, and somehow emerged with a deeper understanding of productivity itself. This wasn't failure—this was <span class="highlight-text">strategic exploration</span>.</p>
+            <p>Perhaps the most productive thing we can do is occasionally abandon our plans entirely.</p>
+          </div>
+          <a href="/blog/productive-procrastination" class="read-more">Continue reading</a>
+        </article>
+
+        <article class="blog-post fade-up">
+          <div class="post-meta">June 15th, 2025</div>
+          <h2 class="post-title">
+            <a href="/blog/walking-without-destination">The Philosophy of Aimless Walking</a>
+          </h2>
+          <div class="post-excerpt">
+            <p>The most revelatory journeys begin without itineraries. Yesterday, I departed for groceries and discovered instead a hidden temple, shared chai with a stranger who became a storyteller, and returned home with three essay ideas and zero vegetables.</p>
+            <p>Sometimes the most direct path to insight is the one that leads everywhere but where we intended to go.</p>
+          </div>
+          <a href="/blog/walking-without-destination" class="read-more">Continue reading</a>
+        </article>
+
+        <div class="coming-soon fade-up">
+          <p>More reflections are brewing—like exceptional chai, some thoughts require patience to reach their fullest expression.</p>
+          <p>In the meantime, you might find me wandering Jaipur's labyrinthine streets or contemplating life from my favorite café corner.</p>
+        </div>
       </div>
-      <a href="/blog/chai-philosophy" class="read-more">Continue reading ?</a>
-    </article>
+    </section>
+  </main>
 
-    <article class="blog-post">
-      <div class="post-meta">June 28, 2025</div>
-      <h2 class="post-title">
-        <a href="/blog/productive-procrastination">The Art of Productive Procrastination</a>
-      </h2>
-      <div class="post-excerpt">
-        <p>I was supposed to write code today. Instead, I reorganized my entire digital life, read three articles about productivity, and somehow ended up learning about medieval architecture. This wasn't failure�this was <span class="highlight-text">strategic exploration</span>.</p>
-      </div>
-      <a href="/blog/productive-procrastination" class="read-more">Continue reading ?</a>
-    </article>
-
-    <article class="blog-post">
-      <div class="post-meta">June 15, 2025</div>
-      <h2 class="post-title">
-        <a href="/blog/walking-without-destination">Walking Without Destination</a>
-      </h2>
-      <div class="post-excerpt">
-        <p>The best walks happen when you leave the house with no plan. Yesterday, I set out for groceries and ended up discovering a small temple I'd never noticed, having chai with a stranger, and collecting three story ideas. The groceries? Still needed.</p>
-      </div>
-      <a href="/blog/walking-without-destination" class="read-more">Continue reading ?</a>
-    </article>
-
-    <div class="coming-soon">
-      <p>More posts brewing... like good chai, some things take time.</p>
-      <p>In the meantime, find me wandering around Jaipur or pretending to be productive.</p>
-    </div>
-  </div>
+  <!-- External JS -->
+  <script src="assets/style.js"></script>
 </body>
 </html>
