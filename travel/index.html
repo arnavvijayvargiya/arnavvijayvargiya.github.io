@@ -1,1 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Travel | ????? ??????????</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --fontFamily-sans: "Inter", "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --fontFamily-serif: "Crimson Text", "Merriweather", Georgia, Cambria, "Times New Roman", Times, serif;
 
+      --font-body: var(--fontFamily-serif);
+      --font-heading: var(--fontFamily-sans);
+
+      --lineHeight-normal: 2rem;
+
+      --fontSize-normal: 1rem;
+      --fontSize-big: 1.44rem;
+      --fontSize-bigger: 1.738rem;
+      --fontSize-very-big: 2.488rem;
+
+      --color-heading: #1a1a1a;
+      --color-text: #2F323A;
+      --color-link: #2F323A;
+      --color-selection: rgba(212, 165, 116, 0.3);
+
+      --fontWeight-black: 900;
+      --fontWeight-medium: 500;
+
+      --spacing-0: 0;
+      --spacing-little: 0.5rem;
+      --spacing-normal: 1rem;
+      --spacing-big: 1.5rem;
+      --spacing-very-big: 3rem;
+
+      --color-background: #faf7f2;
+    }
+
+    html {
+      line-height: var(--lineHeight-normal);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Text selection styling */
+    ::selection {
+      background-color: var(--color-selection);
+      color: var(--color-heading);
+    }
+
+    ::-moz-selection {
+      background-color: var(--color-selection);
+      color: var(--color-heading);
+    }
+
+    body {
+      background-color: var(--color-background);
+      max-width: 38em;
+      margin: 0 auto;
+      padding: var(--spacing-big) var(--spacing-little);
+      font-family: var(--font-body);
+      font-size: 19px;
+      color: var(--color-text);
+      line-height: 1.75;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--color-heading);
+      margin-bottom: var(--spacing-big);
+      font-weight: var(--fontWeight-medium);
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-weight: var(--fontWeight-black);
+      font-size: 2.2rem;
+      margin-bottom: 1.8rem;
+    }
+
+    h2 {
+      font-weight: var(--fontWeight-black);
+      font-size: var(--fontSize-big);
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: var(--color-text);
+      font-size: 19px;
+      margin-bottom: 1.2rem;
+      line-height: 1.75;
+    }
+
+    a {
+      color: var(--color-link);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+      color: #1a1a1a;
+    }
+
+    a.clean {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .highlight-text {
+      background: linear-gradient(120deg, rgba(212, 165, 116, 0.25) 0%, rgba(232, 200, 159, 0.25) 100%);
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    nav {
+      display: flex;
+      padding: var(--spacing-very-big) var(--spacing-0) 4rem var(--spacing-0);
+      gap: 2rem;
+      border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+      margin-bottom: 3rem;
+    }
+
+    nav a {
+      font-family: var(--font-heading);
+      font-weight: var(--fontWeight-medium);
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    nav a:first-child {
+      margin-right: auto;
+      font-size: var(--fontSize-bigger);
+      font-weight: var(--fontWeight-black);
+    }
+
+    nav a:hover {
+      color: #1a1a1a;
+      transform: translateY(-1px);
+    }
+
+    .section {
+      margin-bottom: 4rem;
+    }
+
+    hr {
+      background: rgba(212, 165, 116, 0.3);
+      height: 1px;
+      border: 0;
+      margin: 1.5rem 0 2rem 0;
+    }
+
+    small {
+      color: #888;
+      font-style: italic;
+    }
+
+    .ai-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .intro-section {
+      margin-bottom: 3rem;
+    }
+
+    .intro-section h2 {
+      margin-bottom: 1rem;
+    }
+
+    /* Travel list styling */
+    .travel-list-item {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+    }
+
+    .travel-list-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .travel-list-item a.clean {
+      display: block;
+      transition: all 0.2s ease;
+    }
+
+    .travel-list-item a.clean:hover {
+      transform: translateY(-2px);
+    }
+
+    .travel-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .travel-image {
+      flex-shrink: 0;
+      width: 120px;
+      height: 80px;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      object-fit: cover;
+    }
+
+    .travel-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .travel-info h2 {
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+      line-height: 1.4;
+    }
+
+    .travel-meta {
+      color: #666;
+      font-size: 16px;
+      margin-bottom: 0.5rem;
+    }
+
+    .travel-thoughts {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-top: 1rem;
+    }
+
+    .travel-thoughts strong {
+      color: var(--color-heading);
+      font-weight: 600;
+    }
+
+    /* Loading state */
+    .loading {
+      text-align: center;
+      color: #888;
+      font-style: italic;
+      padding: 2rem;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      body {
+        padding: var(--spacing-little) var(--spacing-normal);
+      }
+      
+      nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      
+      .travel-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+      }
+      
+      .travel-image {
+        width: 150px;
+        height: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="clean" href="/">??</a>
+    <a href="/book">Book Notes</a>
+    <a href="/blog">Blog</a>
+    <a href="/travel">Travel</a>
+    <a href="/musing">Musing</a>
+  </nav>
+
+  <div class="section">
+    <h1>Travel</h1>
+    <div class="ai-link">
+      <a href="/ai"><small>AI Usage</small></a>
+    </div>
+    <hr>
+    
+    <div class="intro-section">
+      <h2>What you'll find</h2>
+      <p><strong>My experiences:</strong> A few words on what made each place special and who might enjoy visiting. No ratings – I'll leave that to the <span class="highlight-text">wisdom of fellow travelers</span>.</p>
+      <p><strong>Notes:</strong> Practical tips, memorable moments, and insights from the road. Either direct observations or lessons learned along the way.</p>
+    </div>
+    <hr>
+  </div>
+
+  <div id="travel-list">
+    <div class="loading">Loading travel experiences...</div>
+  </div>
+
+  <script>
+    function fetchTravels() {
+      // For demo purposes, I'll create sample data
+      // In your actual implementation, this should fetch from '/travel/travels.json'
+      return Promise.resolve([
+        {
+          title: "Backpacking Through Himachal Pradesh",
+          location: "Himachal Pradesh, India",
+          slug: "himachal-pradesh-backpacking",
+          dateVisited: "2024-12-10",
+          duration: "10 days",
+          thoughts: "A transformative journey through the mountains. Perfect for anyone seeking adventure and spiritual renewal in nature's embrace."
+        },
+        {
+          title: "Weekend in Goa",
+          location: "Goa, India",
+          slug: "goa-weekend",
+          dateVisited: "2024-11-15",
+          duration: "3 days",
+          thoughts: "Sun, sand, and soul food. Great for a quick escape from city life and reconnecting with friends over endless conversations."
+        },
+        {
+          title: "Exploring Rajasthan's Golden Triangle",
+          location: "Jaipur, Udaipur, Jodhpur",
+          slug: "rajasthan-golden-triangle",
+          dateVisited: "2024-10-20",
+          duration: "7 days",
+          thoughts: "A deep dive into India's royal heritage. Essential for anyone fascinated by architecture, history, and vibrant local culture."
+        },
+        {
+          title: "Kerala Backwaters Experience",
+          location: "Alleppey, Kerala",
+          slug: "kerala-backwaters",
+          dateVisited: "2024-09-05",
+          duration: "4 days",
+          thoughts: "Floating through serene waterways on a houseboat. Perfect for digital detox and experiencing India's natural beauty at its finest."
+        }
+      ]);
+      
+      // Uncomment this for your actual implementation:
+      // return fetch('/travel/travels.json').then(response => response.json());
+    }
+
+    function renderTravelList() {
+      var listEl = document.getElementById("travel-list");
+
+      fetchTravels().then(travels => {
+        // Clear loading message
+        listEl.innerHTML = '';
+        
+        // Sort by date visited (newest first)
+        travels.sort((a, b) => { return new Date(b.dateVisited) - new Date(a.dateVisited); }); 
+        
+        for (const travel of travels) {
+          var travelEl = document.createElement("div");
+          travelEl.className = "travel-list-item";
+          travelEl.innerHTML = `
+            <a class="clean" href="/travel/${travel.slug}">
+              <div class="travel-header">
+                <img class="travel-image" src="/images/travel/${travel.slug}.jpeg" alt="${travel.title}" />
+                <div class="travel-info">
+                  <h2>${travel.title}</h2>
+                  <div class="travel-meta">${travel.location}</div>
+                  <div class="travel-meta">Visited: ${formatDate(travel.dateVisited)} • Duration: ${travel.duration}</div>
+                </div>
+              </div>
+              <div class="travel-thoughts">
+                <strong>My experience:</strong> ${travel.thoughts}
+              </div>
+            </a>
+          `;
+          listEl.appendChild(travelEl);
+        }
+      }).catch(error => {
+        listEl.innerHTML = '<div class="loading">Failed to load travel experiences. Please try again later.</div>';
+        console.error('Error loading travels:', error);
+      });
+    }
+
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      });
+    }
+
+    window.onload = renderTravelList;
+  </script>
+</body>
+</html>
