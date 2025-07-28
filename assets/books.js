@@ -1,5 +1,5 @@
 async function fetchBooks() {
-  const response = await fetch('booklist.json');
+  const response = await fetch('/assets/booklist.json');
   if (!response.ok) {
     throw new Error('Failed to load book data.');
   }
