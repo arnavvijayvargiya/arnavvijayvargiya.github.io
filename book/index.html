@@ -1,398 +1,54 @@
-
 <!doctype html>
 <html lang="en">
 <head>
-  <title>Book Notes | Arnav </title>
+  <title>अर्नव विजयवर्गीय</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    :root {
-      --fontFamily-sans: "Inter", "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --fontFamily-serif: "Crimson Text", "Merriweather", Georgia, Cambria, "Times New Roman", Times, serif;
 
-      --font-body: var(--fontFamily-serif);
-      --font-heading: var(--fontFamily-sans);
-
-      --lineHeight-normal: 2rem;
-
-      --fontSize-normal: 1rem;
-      --fontSize-big: 1.44rem;
-      --fontSize-bigger: 1.738rem;
-      --fontSize-very-big: 2.488rem;
-
-      --color-heading: #1a1a1a;
-      --color-text: #2F323A;
-      --color-link: #2F323A;
-      --color-selection: rgba(212, 165, 116, 0.3);
-
-      --fontWeight-black: 900;
-      --fontWeight-medium: 500;
-
-      --spacing-0: 0;
-      --spacing-little: 0.5rem;
-      --spacing-normal: 1rem;
-      --spacing-big: 1.5rem;
-      --spacing-very-big: 3rem;
-
-      --color-background: #faf7f2;
-    }
-
-    html {
-      line-height: var(--lineHeight-normal);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* Text selection styling */
-    ::selection {
-      background-color: var(--color-selection);
-      color: var(--color-heading);
-    }
-
-    ::-moz-selection {
-      background-color: var(--color-selection);
-      color: var(--color-heading);
-    }
-
-    body {
-      background-color: var(--color-background);
-      max-width: 42em;
-      margin: 0 auto;
-      padding: var(--spacing-big) var(--spacing-little);
-      font-family: var(--font-body);
-      font-size: 19px;
-      color: var(--color-text);
-      line-height: 1.75;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: var(--font-heading);
-      color: var(--color-heading);
-      margin-bottom: var(--spacing-big);
-      font-weight: var(--fontWeight-medium);
-      letter-spacing: -0.02em;
-    }
-
-    h1 {
-      font-weight: var(--fontWeight-black);
-      font-size: 2.2rem;
-      margin-bottom: 1.8rem;
-    }
-
-    h2 {
-      font-weight: var(--fontWeight-black);
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      color: var(--color-text);
-      font-size: 19px;
-      margin-bottom: 1.2rem;
-      line-height: 1.75;
-    }
-
-    a {
-      color: var(--color-link);
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
-      transition: all 0.2s ease;
-    }
-
-    a:hover {
-      text-decoration-thickness: 2px;
-      color: #1a1a1a;
-    }
-
-    a.clean {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .highlight-text {
-      background: linear-gradient(120deg, rgba(212, 165, 116, 0.25) 0%, rgba(232, 200, 159, 0.25) 100%);
-      padding: 3px 6px;
-      border-radius: 4px;
-      font-weight: 500;
-    }
-
-    nav {
-      display: flex;
-      padding: var(--spacing-very-big) var(--spacing-0) 4rem var(--spacing-0);
-      gap: 2rem;
-      border-bottom: 1px solid rgba(212, 165, 116, 0.2);
-      margin-bottom: 3rem;
-    }
-
-    nav a {
-      font-family: var(--font-heading);
-      font-weight: var(--fontWeight-medium);
-      transition: all 0.2s ease;
-      position: relative;
-    }
-
-    nav a:first-child {
-      margin-right: auto;
-      font-size: var(--fontSize-bigger);
-      font-weight: var(--fontWeight-black);
-    }
-
-    nav a:hover {
-      color: #1a1a1a;
-      transform: translateY(-1px);
-    }
-
-    .section {
-      margin-bottom: 4rem;
-    }
-
-    .intro-section {
-      margin-bottom: 3rem;
-    }
-
-    hr {
-      background: rgba(212, 165, 116, 0.3);
-      height: 1px;
-      border: 0;
-      margin: 2rem 0;
-    }
-
-    small {
-      color: #888;
-      font-style: italic;
-    }
-
-    /* Book List Styling */
-    .book-list-item {
-      margin-bottom: 2.5rem;
-      transition: all 0.2s ease;
-    }
-
-    .book-list-item:hover {
-      transform: translateX(5px);
-    }
-
-    .book-list-item a.clean {
-      display: block;
-    }
-
-    .book-info {
-      display: flex;
-      align-items: flex-start;
-      gap: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .book-list-item img {
-      width: 100px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 6px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s ease;
-    }
-
-    .book-list-item:hover img {
-      transform: scale(1.02);
-    }
-
-    .book-details h2 {
-      margin-bottom: 0.5rem;
-      font-size: 1.3rem;
-      line-height: 1.4;
-    }
-
-    .book-details small {
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .book-thoughts {
-      font-size: 18px;
-      line-height: 1.6;
-      margin-left: 115px;
-    }
-
-    .book-thoughts strong {
-      color: var(--color-heading);
-    }
-
-    .book-list-item hr {
-      margin: 1.5rem 0 0 0;
-      opacity: 0.5;
-    }
-
-    /* Loading state */
-    .loading {
-      text-align: center;
-      color: #888;
-      font-style: italic;
-      padding: 2rem;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: var(--spacing-little) var(--spacing-normal);
-        max-width: 100%;
-      }
-      
-      nav {
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      .book-info {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1rem;
-      }
-
-      .book-thoughts {
-        margin-left: 0;
-        text-align: left;
-      }
-
-      .book-list-item img {
-        width: 120px;
-        height: 180px;
-      }
-    }
-  </style>
-  <script>
-    function fetchBooks() {
-      return fetch('/book/books.json')
-        .then(response => response.json());
-    }
-
-    function renderBookList() {
-      var listEl = document.getElementById("book-list");
-      
-      // Show loading state
-      listEl.innerHTML = '<div class="loading">Loading books...</div>';
-
-      fetchBooks().then(books => {
-        listEl.innerHTML = ''; // Clear loading state
-        
-        books.sort((a, b) => { return new Date(b.dateRead) - new Date(a.dateRead); }); 
-        
-        for (const book of books) {
-          var bookEl = document.createElement("div");
-          bookEl.className = "book-list-item";
-          bookEl.innerHTML = `
-            <a class="clean" href="/book/${book.slug}">
-              <div class="book-info">
-                <img src="/images/books/${book.isbn}.jpeg" alt="${book.title} cover" />
-                <div class="book-details">
-                  <h2>${book.title}</h2>
-                  <small>By ${book.author}</small>
-                  <small>Date Read: ${book.dateRead}</small>
-                </div>
-              </div>
-              <div class="book-thoughts">
-                <strong>My thoughts:</strong> ${book.thoughts}
-              </div>
-              <hr>
-            </a>
-          `;
-          listEl.appendChild(bookEl);
-        }
-      }).catch(error => {
-        listEl.innerHTML = '<div class="loading">Failed to load books. Please try again later.</div>';
-        console.error('Error fetching books:', error);
-      });
-    }
-
-    window.onload = renderBookList;
- const books = [
-      {
-        "title": "The Almanack of Naval Ravikant",
-        "author": "Eric Jorgenson",
-        "isbn": "9781544514215",
-        "slug": "almanack-of-naval-ravikant",
-        "dateRead": "2024-12-05",
-        "thoughts": "A great collection of Naval's ideas. Highly recommend it to anyone interested in wealth creation and decision-making."
-      },
-      {
-        "title": "Atomic Habits",
-        "author": "James Clear",
-        "isbn": "9780735211292",
-        "slug": "atomic-habits",
-        "dateRead": "2024-10-15",
-        "thoughts": "Practical and actionable. If you're into behavior change and optimization, this is essential reading."
-      },
-      {
-        "title": "Sapiens: A Brief History of Humankind",
-        "author": "Yuval Noah Harari",
-        "isbn": "9780062316097",
-        "slug": "sapiens",
-        "dateRead": "2024-08-22",
-        "thoughts": "Gives a compelling overview of human history. Thought-provoking and well-written."
-      }
-    ];
-
-    function renderBookList() {
-      var listEl = document.getElementById("book-list");
-
-      // Show loading state
-      listEl.innerHTML = '<div class="loading">Loading books...</div>';
-
-      try {
-        listEl.innerHTML = ''; // Clear loading state
-
-        books.sort((a, b) => new Date(b.dateRead) - new Date(a.dateRead));
-
-        for (const book of books) {
-          var bookEl = document.createElement("div");
-          bookEl.className = "book-list-item";
-          bookEl.innerHTML = `
-            <a class="clean" href="/book/${book.slug}">
-              <div class="book-info">
-                <img src="/images/books/${book.isbn}.jpeg" alt="${book.title} cover" />
-                <div class="book-details">
-                  <h2>${book.title}</h2>
-                  <small>By ${book.author}</small>
-                  <small>Date Read: ${book.dateRead}</small>
-                </div>
-              </div>
-              <div class="book-thoughts">
-                <strong>My thoughts:</strong> ${book.thoughts}
-              </div>
-              <hr>
-            </a>
-          `;
-          listEl.appendChild(bookEl);
-        }
-      } catch (error) {
-        listEl.innerHTML = '<div class="loading">Failed to load books. Please try again later.</div>';
-        console.error('Error rendering books:', error);
-      }
-    }
-
-    window.onload = renderBookList;
-  </script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
   <nav>
-    <a class="clean" href="/">?</a>
-    <a href="/book">Book Notes</a>
-    <a href="/blog">Blog</a>
-    <a href="/travel">Travel</a>
-    <a href="/musing">Musing</a>
+    <div class="nav-content">
+      <a href="/" class="logo">अर्नव विजयवर्गीय</a>
+      <ul class="nav-links">
+        <li><a href="/book" class="active">Book Notes</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/travel">Travel</a></li>
+        <li><a href="/musing">Musing</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <div class="section">
-    <h1>Book Notes</h1>
-    <hr>    
-    <div class="intro-section">
-      <h2>What you'll find</h2>
-      <p><strong>My thoughts:</strong> A few words on what I liked and who I recommend it to. No ratings � I'll leave that to the law of large numbers.</p>
-      <p><strong>Notes:</strong> Snippets that I found relevant or useful. Either direct quotes or my own interpretation.</p>
-    </div>
-    <hr>
-    
-    <div id="book-list"></div>
-  </div>
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1 class="page-title">Literary Wanderings</h1>
+        <div class="decorative-line"></div>
+        <p class="page-description">
+          A curated collection of thoughts, insights, and reflections from books that have shaped my understanding of the world—each one a conversation across time and space.
+        </p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="intro-section fade-up">
+        <h2>What You'll Discover Here</h2>
+        <p><strong>Reflections:</strong> My personal thoughts on what resonated, challenged, or inspired me. No star ratings—just honest conversations about ideas that matter.</p>
+        <p><strong>Noteworthy Passages:</strong> Carefully selected quotes and interpretations that capture the essence of each work, along with my own musings on their significance.</p>
+      </div>
+
+      <div class="book-list">
+        <div id="book-list"></div>
+      </div>
+    </section>
+ </main>
+
+  <!-- External JS -->
+  <script src="/assets/style.js"></script>
 </body>
 </html>
