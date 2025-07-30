@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Musing - ????? ??????????</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --fontFamily-sans: "Inter", "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --fontFamily-serif: "Crimson Text", "Merriweather", Georgia, Cambria, "Times New Roman", Times, serif;
+
+      --font-body: var(--fontFamily-serif);
+      --font-heading: var(--fontFamily-sans);
+
+      --lineHeight-normal: 2rem;
+
+      --fontSize-normal: 1rem;
+      --fontSize-big: 1.44rem;
+      --fontSize-bigger: 1.738rem;
+      --fontSize-very-big: 2.488rem;
+
+      --color-heading: #1a1a1a;
+      --color-text: #2F323A;
+      --color-link: #2F323A;
+      --color-selection: rgba(212, 165, 116, 0.3);
+
+      --fontWeight-black: 900;
+      --fontWeight-medium: 500;
+
+      --spacing-0: 0;
+      --spacing-little: 0.5rem;
+      --spacing-normal: 1rem;
+      --spacing-big: 1.5rem;
+      --spacing-very-big: 3rem;
+
+      --color-background: #faf7f2;
+    }
+
+    html {
+      line-height: var(--lineHeight-normal);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Text selection styling */
+    ::selection {
+      background-color: var(--color-selection);
+      color: var(--color-heading);
+    }
+
+    ::-moz-selection {
+      background-color: var(--color-selection);
+      color: var(--color-heading);
+    }
+
+    body {
+      background-color: var(--color-background);
+      max-width: 38em;
+      margin: 0 auto;
+      padding: var(--spacing-big) var(--spacing-little);
+      font-family: var(--font-body);
+      font-size: 19px;
+      color: var(--color-text);
+      line-height: 1.75;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--color-heading);
+      margin-bottom: var(--spacing-big);
+      font-weight: var(--fontWeight-medium);
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-weight: var(--fontWeight-black);
+      font-size: 2.2rem;
+      margin-bottom: 1.8rem;
+    }
+
+    h2 {
+      font-weight: var(--fontWeight-black);
+    }
+
+    p {
+      color: var(--color-text);
+      font-size: 19px;
+      margin-bottom: 1.2rem;
+      line-height: 1.75;
+    }
+
+    a {
+      color: var(--color-link);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+      color: #1a1a1a;
+    }
+
+    a.clean {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .highlight-text {
+      background: linear-gradient(120deg, rgba(212, 165, 116, 0.25) 0%, rgba(232, 200, 159, 0.25) 100%);
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    nav {
+      display: flex;
+      padding: var(--spacing-very-big) var(--spacing-0) 4rem var(--spacing-0);
+      gap: 2rem;
+      border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+      margin-bottom: 3rem;
+    }
+
+    nav a {
+      font-family: var(--font-heading);
+      font-weight: var(--fontWeight-medium);
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    nav a:first-child {
+      margin-right: auto;
+      font-size: var(--fontSize-bigger);
+      font-weight: var(--fontWeight-black);
+    }
+
+    nav a:hover {
+      color: #1a1a1a;
+      transform: translateY(-1px);
+    }
+
+    .section {
+      margin-bottom: 4rem;
+    }
+
+    hr {
+      background: rgba(212, 165, 116, 0.3);
+      height: 1px;
+      border: 0;
+      margin: 1.5rem 0 2rem 0;
+    }
+
+    small {
+      color: #888;
+      font-style: italic;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .musing-item {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(212, 165, 116, 0.1);
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .musing-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .musing-date {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      color: #888;
+      font-weight: var(--fontWeight-medium);
+      min-width: 80px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .musing-content {
+      flex: 1;
+    }
+
+    .musing-text {
+      font-size: 19px;
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+      color: var(--color-text);
+    }
+
+    .musing-source {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      color: #888;
+      font-style: italic;
+      margin-bottom: 0.3rem;
+    }
+
+    .musing-source a {
+      color: #888;
+      text-decoration: none;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .musing-source a:hover {
+      color: #555;
+      border-bottom-color: #555;
+    }
+
+    .musing-meta {
+      font-family: var(--font-heading);
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .tweet-style {
+      background: rgba(212, 165, 116, 0.05);
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 3px solid rgba(212, 165, 116, 0.3);
+    }
+
+    .random-thought {
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: var(--spacing-little) var(--spacing-normal);
+      }
+      
+      .musing-item {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .musing-date {
+        min-width: auto;
+        margin-top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="clean" href="index.html">?</a>
+    <a href="/book">Book Notes</a>
+    <a href="/blog">Blog</a> 
+    <a href="/travel">Travel</a>
+    <a href="/musing" style="color: #1a1a1a; font-weight: var(--fontWeight-black);">Musing</a>
+  </nav>
+
+  <div class="section">
+    <h1>Quick Thoughts & Digital Fragments</h1>
+    <small>(The stuff that doesn't deserve a full blog post)</small>
+    <hr>
+  </div>
+
+  <div class="section">
+    <div class="musing-item">
+      <div class="musing-date">19 Jul 2025</div>
+      <div class="musing-content">
+        <div class="musing-text">
+          Watched someone parallel park for 8 minutes straight. At what point do you give up and walk? Asking for Jaipur's traffic situation.
+        </div>
+        <div class="musing-source"><a href="https://x.com">x.com</a></div>
+        <div class="musing-meta">3 likes, 0 sanity left...</div>
+      </div>
+    </div>
+
+    <div class="musing-item">
+      <div class="musing-date">18 Jul 2025</div>
+      <div class="musing-content">
+        <div class="musing-text tweet-style">
+          The fact that I can code for 6 hours straight but can't fold laundry for 10 minutes says something profound about human nature. Or my priorities. Probably my priorities.
+        </div>
+        <div class="musing-source"><a href="https://x.com">x.com</a></div>
+        <div class="musing-meta">12 likes, 2 retweets, 1 existential crisis...</div>
+      </div>
+    </div>
+
+    <div class="musing-item">
+      <div class="musing-date">17 Jul 2025</div>
+      <div class="musing-content">
+        <div class="musing-text">
+          <span class="highlight-text">Productivity tip</span>: Replace "I don't have time" with "It's not a priority." Watch how quickly your excuses become honest conversations with yourself.
+        </div>
+        <div class="musing-source">Random thought while procrastinating</div>
+        <div class="musing-meta">0 permissions out of 10...</div>
+      </div>
+    </div>
+
+    <div class="musing-item">
+      <div class="musing-date">16 Jul 2025</div>
+      <div class="musing-content">
+        <div class="musing-text random-thought">
+          There's something deeply satisfying about deleting code that doesn't work instead of commenting it out "just in case." It's like digital Marie Kondo.
+        </div>
+        <div class="musing-source"><a href="https://x.com">x.com</a></div>
+        <div class="musing-meta">8 likes, several developers having flashbacks...</div>
+      </div>
+    </div>
+
+    <div class="musing-item">
+      <div class="musing-date">15 Jul 2025</div>
+      <div class="musing-content">
+        <div class="musing-text">
+          Jaipur summer logic: It's too hot to go outside, but somehow perfect weather for ordering food that requires the delivery person to venture into the same heat. The cognitive dissonance is real.
+        </div>
+        <div class="musing-source">WhatsApp status</div>
+        <div class="musing-meta">Guilt level: Maximum</div>
+      </div>
+    </div>
+
+    <div class="musing-item">
+      <div class="musing-date">14 Jul 2025</div>
+      <div class="musing-content">
+        <div class="musing-text tweet-style">
+          My morning routine: Wake up ? Check weather ? Question life choices ? Make chai ? Suddenly everything seems manageable. 
+          
+          Chai is basically liquid optimism.
+        </div>
+        <div class="musing-source"><a href="https://x.com">x.com</a></div>
+        <div class="musing-meta">23 likes, 5 retweets, 1 chai vendor following me now...</div>
+      </div>
+    </div>
+
+    <div class="musing-item">
+      <div class="musing-date">12 Jul 2025</div>
+      <div class="musing-content">
+        <div class="musing-text">
+          Walking without destination taught me more about myself than any self-help book. Sometimes the best discoveries happen when you're not looking for them.
+        </div>
+        <div class="musing-source">Voice note to self</div>
+        <div class="musing-meta">Recorded while lost, obviously...</div>
+      </div>
+    </div>
+
+    <div class="musing-item">
+      <div class="musing-date">10 Jul 2025</div>
+      <div class="musing-content">
+        <div class="musing-text random-thought">
+          The amount of energy I spend avoiding a 5-minute task could probably power a small village. Yet here I am, writing about avoiding instead of just doing it.
+        </div>
+        <div class="musing-source"><a href="https://x.com">x.com</a></div>
+        <div class="musing-meta">47 likes, everyone relating too hard...</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
