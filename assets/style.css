@@ -19,6 +19,7 @@
   --accent-warm: #e8c89f;
   --accent-sage: #9caf88;
   --accent-ocean: #7bb3c7;
+  --accent-sunset: #e8a87c;
   --border-light: rgba(212, 165, 116, 0.2);
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.06);
   --shadow-lift: 0 8px 30px rgba(0, 0, 0, 0.12);
@@ -243,7 +244,7 @@ nav {
 /* ==========================================================================
    Cards and Content Blocks
    ========================================================================== */
-.content-card, .card, .book-item, .blog-post {
+.content-card, .card, .book-item, .blog-post, .travel-item {
   background: var(--bg-secondary);
   padding: 3rem;
   border-radius: 12px;
@@ -255,7 +256,7 @@ nav {
   overflow: hidden;
 }
 
-.content-card::before, .card::before, .book-item::before, .blog-post::before {
+.content-card::before, .card::before, .book-item::before, .blog-post::before, .travel-item::before {
   content: '';
   position: absolute;
   top: 0;
@@ -267,12 +268,16 @@ nav {
   transition: opacity 0.3s ease;
 }
 
-.content-card:hover, .card:hover, .book-item:hover, .blog-post:hover {
+.travel-item::before {
+  background: linear-gradient(90deg, var(--accent-ocean) 0%, var(--accent-sunset) 50%, var(--accent-sage) 100%);
+}
+
+.content-card:hover, .card:hover, .book-item:hover, .blog-post:hover, .travel-item:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lift);
 }
 
-.content-card:hover::before, .card:hover::before, .book-item:hover::before, .blog-post:hover::before {
+.content-card:hover::before, .card:hover::before, .book-item:hover::before, .blog-post:hover::before, .travel-item:hover::before {
   opacity: 1;
 }
 
@@ -471,6 +476,112 @@ nav {
 
 .read-more:hover::after {
   transform: translateX(4px);
+}
+
+/* ==========================================================================
+   Travel section
+   ========================================================================== */
+.travel-list {
+  padding: 2rem 0;
+}
+
+.travel-content {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.travel-image {
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.travel-item:hover .travel-image {
+  transform: scale(1.02);
+}
+
+.travel-details h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.travel-meta {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.travel-meta span {
+  display: inline-block;
+  margin-right: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.location-badge {
+  display: inline-block;
+  background: rgba(212, 165, 116, 0.1);
+  color: var(--accent-gold);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(212, 165, 116, 0.2);
+}
+
+.travel-reflections {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.travel-reflections strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.travel-highlights {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.highlight-item {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 165, 116, 0.1);
+}
+
+.highlight-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.3rem;
+}
+
+.highlight-value {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
 }
 
 /* ==========================================================================
@@ -711,7 +822,7 @@ nav {
     font-size: 0.9rem;
   }
 
-  .content-card, .card, .book-item, .blog-post {
+  .content-card, .card, .book-item, .blog-post, .travel-item {
     padding: 2rem;
     margin-bottom: 1.5rem;
   }
@@ -761,6 +872,33 @@ nav {
   .post-excerpt {
     font-size: 1rem;
     margin-bottom: 1.5rem;
+  }
+
+  .travel-content {
+    grid-template-columns: 150px 1fr;
+    gap: 1.5rem;
+  }
+
+  .travel-image {
+    width: 150px;
+    height: 100px;
+  }
+
+  .travel-details h3 {
+    font-size: 1.2rem;
+  }
+
+  .travel-meta {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .travel-reflections {
+    font-size: 1rem;
+  }
+
+  .highlights-grid {
+    grid-template-columns: 1fr;
   }
 
   .coming-soon {
@@ -821,7 +959,7 @@ nav {
     font-size: 1.6rem;
   }
 
-  .content-card, .card, .book-item, .blog-post {
+  .content-card, .card, .book-item, .blog-post, .travel-item {
     padding: 1.5rem;
   }
 
@@ -842,6 +980,22 @@ nav {
   }
 
   .book-details {
+    text-align: left;
+  }
+
+  .travel-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .travel-image {
+    justify-self: center;
+    width: 180px;
+    height: 120px;
+  }
+
+  .travel-details {
     text-align: left;
   }
 
