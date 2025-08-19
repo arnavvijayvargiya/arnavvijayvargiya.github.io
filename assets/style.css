@@ -18,6 +18,7 @@
   --accent-gold: #d4a574;
   --accent-warm: #e8c89f;
   --accent-sage: #9caf88;
+  --accent-ocean: #7bb3c7;
   --border-light: rgba(212, 165, 116, 0.2);
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.06);
   --shadow-lift: 0 8px 30px rgba(0, 0, 0, 0.12);
@@ -114,10 +115,15 @@ a {
 
 .highlight-text {
   background: linear-gradient(120deg, rgba(212, 165, 116, 0.25) 0%, rgba(232, 200, 159, 0.25) 100%);
-  padding: 2px 6px;
-  border-radius: 4px;
+  padding: 3px 8px;
+  border-radius: 6px;
   font-weight: 500;
   color: var(--text-primary);
+}
+
+.emoji {
+  font-size: 1.2em;
+  margin: 0 0.2em;
 }
 
 /* ==========================================================================
@@ -137,11 +143,9 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 0;
+  padding: 1.5rem 2rem;
   max-width: 900px;
   margin: 0 auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
 }
 
 .logo {
@@ -184,17 +188,14 @@ nav {
   transition: width 0.3s ease;
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
   width: 100%;
 }
 
 .nav-links a.active {
   color: var(--text-primary);
   font-weight: 500;
-}
-
-.nav-links a.active::after {
-  width: 100%;
 }
 
 /* ==========================================================================
@@ -310,7 +311,7 @@ nav {
 }
 
 /* ==========================================================================
-   Book Notes Specific Styles
+   Introduction section
    ========================================================================== */
 .intro-section {
   background: var(--bg-secondary);
@@ -340,6 +341,9 @@ nav {
   margin-bottom: 0;
 }
 
+/* ==========================================================================
+   Book notes section
+   ========================================================================== */
 .book-content {
   display: grid;
   grid-template-columns: 120px 1fr;
@@ -470,6 +474,113 @@ nav {
 }
 
 /* ==========================================================================
+   Musing section
+   ========================================================================== */
+.musing-list {
+  padding: 2rem 0;
+}
+
+.musing-item {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.musing-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-gold) 0%, var(--accent-warm) 50%, var(--accent-sage) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.musing-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+}
+
+.musing-item:hover::before {
+  opacity: 1;
+}
+
+.musing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.musing-date {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  background: rgba(212, 165, 116, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+}
+
+.musing-source {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.musing-source a {
+  color: var(--accent-gold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.musing-source a:hover {
+  border-bottom-color: var(--accent-gold);
+}
+
+.musing-text {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.musing-text.italic {
+  font-style: italic;
+}
+
+.musing-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+  border-top: 1px solid var(--border-light);
+  padding-top: 1rem;
+}
+
+/* Special styles for different types */
+.tweet-style {
+  background: linear-gradient(135deg, rgba(123, 179, 199, 0.05) 0%, rgba(212, 165, 116, 0.05) 100%);
+  border-left: 3px solid var(--accent-ocean);
+}
+
+.random-thought {
+  background: linear-gradient(135deg, rgba(156, 175, 136, 0.08) 0%, rgba(232, 200, 159, 0.08) 100%);
+  border-left: 3px solid var(--accent-sage);
+}
+
+/* ==========================================================================
    Utility Classes
    ========================================================================== */
 .meta {
@@ -513,6 +624,7 @@ nav {
   margin-bottom: 0;
 }
 
+/* Loading and Error States */
 .loading, .error {
   text-align: center;
   padding: 4rem 2rem;
@@ -669,6 +781,10 @@ nav {
     padding-top: 1.2rem;
     font-size: 0.85rem;
   }
+
+  .musing-item {
+    padding: 1.5rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -738,6 +854,10 @@ nav {
   }
 
   .coming-soon {
+    padding: 1.5rem;
+  }
+
+  .musing-item {
     padding: 1.5rem;
   }
 }
